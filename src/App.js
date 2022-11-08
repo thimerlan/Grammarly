@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { GrammarlyEditorPlugin, Grammarly } from "@grammarly/editor-sdk-react";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Grammarly>
+        <GrammarlyEditorPlugin
+          contenteditable="true"
+          clientId="client_HGu1p4bnjopAHi1vpAgB1x"
         >
-          Learn React
-        </a>
-      </header>
+          <textarea />
+        </GrammarlyEditorPlugin>
+        <grammarly-button></grammarly-button>
+      </Grammarly>
     </div>
   );
 }

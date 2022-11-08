@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+body {
+  background: #222;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-family: "Poppins";
+}
+.App {
+  position: relative;
+}
+textarea {
+  resize: none;
+  width: 35em;
+  height: 20vh;
+  border-radius: 1.2ex;
+  background-color: rgb(77, 77, 77);
+  color: rgb(255, 217, 0);
+  outline: none;
+  border: none;
+  font-weight: 666;
+  font-size: 20px;
+  padding: 15px;
+  letter-spacing: 0.05ex;
+  font-style: italic;
+}
+textarea::selection {
+  background-color: rgba(34, 34, 34, 0.859);
 }
 
-.App-link {
-  color: #61dafb;
+grammarly-editor-plugin {
+  --grammarly-default-font-family: "Poppins";
+  --grammarly-interactive-color: tomato;
+  --grammarly-default-border-radius: 30px;
+  --grammarly-card-border-radius: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+grammarly-button {
+  position: absolute;
+  bottom: 15px;
+  right: 6px;
+}
+
+grammarly-editor-plugin,
+grammarly-button {
+  color-scheme: dark;
+}
+
+Close {
+  display: none !important;
+}
+
+select {
+  padding: 100px !important;
+}
+
+/*Responsive:*/
+
+@media (max-width: 768px) {
+  textarea {
+    width: 20em;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 455px) {
+  textarea {
+    width: 15em;
   }
+}
+textarea::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(103, 99, 59);
+  border-radius: 1ex;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: rgb(57, 57, 57);
+  width: 6px;
+  border-radius: 0.9ex;
 }
