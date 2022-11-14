@@ -1,7 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Mansalva:regular&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Bodoni+Moda:regular,500,600,700,800,900,italic,500italic,600italic,700italic,800italic,900italic&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Yusei+Magic:regular);
 body {
-  background: #222;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -10,10 +13,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Poppins";
+  background-image: url("https://images.unsplash.com/photo-1617575521317-d2974f3b56d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNzMxNjF8MHwxfHNlYXJjaHwzNnx8d3JpdHRpbmclM0R8ZW58MHwwfHx8MTY2ODI0NjM1OQ&ixlib=rb-4.0.3&q=80&w=1080");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .App {
   position: relative;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 button {
   border: none;
@@ -49,14 +60,8 @@ grammarly-button {
   position: absolute;
   bottom: 70px;
   right: 6px;
-  --_1xsyy5eh: #272 !important;
 }
-._1xsyy5e1x {
-  --_1xsyy5eh: #272 !important;
-}
-* {
-  fill: var(--_1xsyy5eh) !important;
-}
+
 grammarly-editor-plugin,
 grammarly-button {
   color-scheme: dark;
@@ -92,7 +97,19 @@ grammarly-button {
     width: 20em;
   }
 }
-
+@media (max-width: 950px) {
+  body {
+    background-image: radial-gradient(
+      circle,
+      #051937,
+      #002e3e,
+      #213f3f,
+      #444e47,
+      #5e5e5d
+    );
+    background: #222;
+  }
+}
 @media (max-width: 455px) {
   textarea {
     width: 15em;
@@ -139,10 +156,14 @@ textarea::-webkit-scrollbar-thumb {
 /*Function buttons style !!! */
 .btns {
   display: flex;
+  align-items: center;
   padding-bottom: 10px;
+  align-content: stretch;
+  flex-direction: row;
+  width: 90%;
 }
 .btns button {
-  padding: 3px 5px;
+  padding: 3px 8px;
 }
 .bold {
   font-family: "Mansalva";
@@ -186,5 +207,103 @@ input[type="color"] {
   color: #272;
   border-radius: 1.5ex;
 }
-
+.cpy-btn {
+  margin-left: 20px;
+  position: relative;
+}
+.cpy-btn span {
+  cursor: none;
+  font-family: "Mansalva";
+  position: absolute;
+  top: -0px;
+  right: 0;
+  font-size: 19px;
+  transition: 0.4s;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+.cpy-btn span.copied {
+  opacity: 0;
+  animation: copied 0.8s ease 1;
+}
+@keyframes copied {
+  0% {
+    opacity: 1;
+    top: -15px;
+  }
+  50% {
+    opacity: 1;
+    top: -30px;
+    transform: scale(1.1) translate3d(3px, -5px, 5px);
+  }
+  70% {
+    opacity: 0;
+  }
+}
+.c-btn {
+  font-family: "Mansalva";
+  font-size: 16px;
+  padding: 7px 17px !important;
+  border-radius: 1.3ex;
+  background-color: #2c2e2cb6;
+  color: aliceblue;
+  transition: 0.2s;
+  cursor: not-allowed;
+}
+.c-btn-act {
+  cursor: pointer;
+  background-color: #2c2e2c;
+  transition: 0.2s;
+  color: #fff;
+  transform: translateY(-3px);
+}
+.c-btn-act:active {
+  color: #222;
+  background-color: #ffd900;
+}
 /* Color input*/
+/* Select Font*/
+.select-fonts {
+  background-color: #213f3f;
+  margin-left: 15px;
+  border-radius: 1.2ex;
+}
+select {
+  width: 125px;
+  width: 100%;
+  padding: 5px 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  background-color: #2c3c3c;
+  color: aliceblue;
+  border: none;
+  border-radius: 20px;
+}
+.select-fonts option {
+  border-radius: 1.1ex;
+  outline: none;
+  cursor: pointer !important;
+  font-family: "Poppins";
+  padding: 10px;
+  background-color: #213f3f;
+  color: aliceblue;
+}
+option:hover {
+  background-color: red !important;
+}
+/* Select Font*/
+/* Change Font size*/
+.change-fSize {
+  margin-left: 15px;
+}
+.change-fSize input {
+  width: 50px;
+  outline: none;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 1ex;
+  background-color: #2b2c2b;
+  color: aliceblue;
+}
+/* Change Font size*/
